@@ -3,19 +3,12 @@
 Ce projet est une application de gestion de parc informatique développée avec Laravel 12. Elle permet de gérer des réseaux, des ordinateurs et des serveurs avec un système de permissions basé sur des rôles.
     Technologies utilisées.
       -Laravel 12
-     .
       - Laravel Breeze
-     .
       - MySQL
-     .
       - TailwindCSS
-     .
       - Alpine.js
-     .
       - Vite
-     .
       - Silber/Bouncer (Gestion des rôles)
-     .
       - PHP 8.4 
 .
     Fonctionnalités
