@@ -9,9 +9,9 @@ Ce projet est une application de gestion de parc informatique développée avec 
       - Alpine.js
       - Vite
       - Silber/Bouncer (Gestion des rôles)
-      - PHP 8.4
+      - PHP 8.4 
+.
     Fonctionnalités
-
 - Authentification : Système complet de connexion (Laravel Breeze).
 - Gestion des Rôles et Permissions :
   - Admin :  gestion des réseaux.
