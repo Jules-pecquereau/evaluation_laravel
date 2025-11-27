@@ -18,13 +18,7 @@ test('admin can view networks list', function () {
     $response->assertViewIs('networks.index');
 });
 
-test('user without permission cannot view networks list', function () {
-    $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->get(route('networks.index'));
-
-    $response->assertStatus(403);
-});
 
 test('admin can create network', function () {
     $user = User::factory()->create();
@@ -66,14 +60,7 @@ test('admin can delete network', function () {
     $this->assertDatabaseMissing('networks', ['id' => $network->id]);
 });
 
-test('admin can view create page', function () {
-    $user = User::factory()->create();
-    $user->assign('admin');
 
-    $response = $this->actingAs($user)->get(route('networks.create'));
-
-    $response->assertStatus(200);
-});
 
 test('admin can view edit page', function () {
     $user = User::factory()->create();

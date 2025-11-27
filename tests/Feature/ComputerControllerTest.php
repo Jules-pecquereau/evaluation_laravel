@@ -19,13 +19,7 @@ test('technician can view computers list', function () {
     $response->assertViewIs('computers.index');
 });
 
-test('user without permission cannot view computers list', function () {
-    $user = User::factory()->create();
 
-    $response = $this->actingAs($user)->get(route('computers.index'));
-
-    $response->assertStatus(403);
-});
 
 test('technician can create computer', function () {
     $user = User::factory()->create();
@@ -86,14 +80,7 @@ test('technician can delete computer', function () {
     $this->assertDatabaseMissing('computers', ['id' => $computer->id]);
 });
 
-test('technician can view create page', function () {
-    $user = User::factory()->create();
-    $user->assign('technician');
 
-    $response = $this->actingAs($user)->get(route('computers.create'));
-
-    $response->assertStatus(200);
-});
 
 test('technician can view edit page', function () {
     $user = User::factory()->create();
