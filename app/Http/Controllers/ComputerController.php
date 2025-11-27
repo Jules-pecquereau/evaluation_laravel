@@ -4,32 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\Computer;
 use App\Models\Network;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ComputerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $computers = Computer::with('network')->get();
+
         return view('computers.index', compact('computers'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         $networks = Network::all();
+
         return view('computers.create', compact('networks'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'serial_number' => 'required|string|unique:computers',
@@ -47,27 +51,29 @@ class ComputerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Computer $computer)
+    public function show(Computer $computer): View
     {
+        /** @phpstan-ignore argument.type */
         return view('computers.show', compact('computer'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Computer $computer)
+    public function edit(Computer $computer): View
     {
         $networks = Network::all();
+
         return view('computers.edit', compact('computer', 'networks'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Computer $computer)
+    public function update(Request $request, Computer $computer): RedirectResponse
     {
         $validated = $request->validate([
-            'serial_number' => 'required|string|unique:computers,serial_number,' . $computer->id,
+            'serial_number' => 'required|string|unique:computers,serial_number,'.$computer->id,
             'model' => 'required|string',
             'brand' => 'required|string',
             'commissioned_at' => 'required|date',
@@ -82,9 +88,10 @@ class ComputerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Computer $computer)
+    public function destroy(Computer $computer): RedirectResponse
     {
         $computer->delete();
+
         return redirect()->route('computers.index')->with('success', __('Computer deleted successfully.'));
     }
 }

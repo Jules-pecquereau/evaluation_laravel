@@ -13,6 +13,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     $networks = Network::withCount(['computers', 'servers'])->get();
+
     return view('dashboard', compact('networks'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -44,6 +45,7 @@ Route::post('/language-switch', function (\Illuminate\Http\Request $request) {
             auth()->user()->update(['language' => $language]);
         }
     }
+
     return back();
 })->name('language.switch');
 

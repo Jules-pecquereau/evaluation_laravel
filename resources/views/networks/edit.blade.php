@@ -18,13 +18,13 @@
                         <div class="mb-4">
                             <label for="label" class="block text-gray-700 text-sm font-bold mb-2">{{ __('Label:') }}</label>
                             <input type="text" name="label" id="label" value="{{ old('label', $network->label ?? '') }}" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                            @error('label') <p class="text-red-400 text-xs italic">{{ $message }}</p> @enderror
+                            @error('label') <p class="text-red-500 text-xs italic">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="mb-4">
                             <label for="lan" class="block text-gray-700 text-sm font-bold mb-2">{{ __('LAN:') }}</label>
                             <input type="text" name="lan" id="lan" value="{{ old('lan', $network->lan ?? '') }}" class="shadow appearance-none border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
-                            @error('lan') <p class="text-red-400 text-xs italic">{{ $message }}</p> @enderror
+                            @error('lan') <p class="text-red-500 text-xs italic">{{ $message }}</p> @enderror
                         </div>
 
                         <div class="mb-4">

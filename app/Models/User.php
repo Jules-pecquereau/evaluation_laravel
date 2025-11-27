@@ -13,6 +13,7 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
  * @property int $id
  * @property string $name
  * @property string $email
+ * @property string $language
  * @property \Illuminate\Support\Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $remember_token
@@ -36,6 +37,7 @@ use Silber\Bouncer\Database\HasRolesAndAbilities;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIs($role)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsAll($role)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsNot($role)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLanguage($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
