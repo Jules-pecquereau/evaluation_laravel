@@ -48,7 +48,6 @@ class NetworkController extends Controller
      */
     public function show(Network $network): View
     {
-        /** @phpstan-ignore argument.type */
         return view('networks.show', compact('network'));
     }
 

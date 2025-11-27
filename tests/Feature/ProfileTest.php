@@ -2,7 +2,6 @@
 
 use App\Models\User;
 
-
 test('profile information can be updated', function () {
     $user = User::factory()->create();
 
@@ -24,8 +23,6 @@ test('profile information can be updated', function () {
     $this->assertNull($user->email_verified_at);
 });
 
-
-
 test('user can delete their account', function () {
     $user = User::factory()->create();
 
@@ -42,5 +39,3 @@ test('user can delete their account', function () {
     $this->assertGuest();
     $this->assertNull($user->fresh());
 });
-
-

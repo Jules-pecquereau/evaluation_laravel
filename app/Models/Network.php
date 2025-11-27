@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Server> $servers
  * @property-read int|null $servers_count
  *
+ * @method static \Database\Factories\NetworkFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Network newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Network newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Network query()
@@ -31,6 +32,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Network extends Model
 {
+    /** @use HasFactory<\Database\Factories\NetworkFactory> */
     use HasFactory;
 
     protected $fillable = ['label', 'lan', 'is_out_of_service'];

@@ -53,7 +53,6 @@ class ComputerController extends Controller
      */
     public function show(Computer $computer): View
     {
-        /** @phpstan-ignore argument.type */
         return view('computers.show', compact('computer'));
     }
 

@@ -19,7 +19,7 @@ class ComputerFactory extends Factory
     {
         return [
             'serial_number' => $this->faker->unique()->bothify('SN-#####-?????'),
-            'model' => $this->faker->word . ' ' . $this->faker->randomNumber(3),
+            'model' => $this->faker->word.' '.$this->faker->randomNumber(3),
             'brand' => $this->faker->company,
             'commissioned_at' => $this->faker->date(),
             'network_id' => Network::factory(),

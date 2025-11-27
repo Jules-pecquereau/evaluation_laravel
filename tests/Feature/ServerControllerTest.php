@@ -106,4 +106,3 @@ test('technician can view edit page', function () {
 
     $response->assertStatus(200);
 });
-

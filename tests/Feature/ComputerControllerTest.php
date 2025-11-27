@@ -19,8 +19,6 @@ test('technician can view computers list', function () {
     $response->assertViewIs('computers.index');
 });
 
-
-
 test('technician can create computer', function () {
     $user = User::factory()->create();
     $user->assign('technician');
@@ -80,8 +78,6 @@ test('technician can delete computer', function () {
     $this->assertDatabaseMissing('computers', ['id' => $computer->id]);
 });
 
-
-
 test('technician can view edit page', function () {
     $user = User::factory()->create();
     $user->assign('technician');
@@ -98,4 +94,3 @@ test('technician can view edit page', function () {
 
     $response->assertStatus(200);
 });
-

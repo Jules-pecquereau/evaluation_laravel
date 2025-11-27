@@ -52,7 +52,7 @@
                                     <div class="flex justify-between items-center mb-2">
                                         <h4 class="text-xl font-semibold">{{ $network->label }}</h4>
                                         <span class="px-2 py-1 rounded text-xs font-bold {{ $network->is_out_of_service ? 'bg-red-200 text-red-900' : 'bg-green-200 text-green-900' }}">
-                                            {{ $network->is_out_of_service ? 'Not Available' : 'Available' }}
+                                            {{ $network->is_out_of_service ? __('Not Available') : __('Available') }}
                                         </span>
                                     </div>
                                     <div class="text-sm">

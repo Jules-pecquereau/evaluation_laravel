@@ -17,8 +17,8 @@ class NetworkFactory extends Factory
     public function definition(): array
     {
         return [
-            'label' => $this->faker->word . ' Network',
-            'lan' => $this->faker->ipv4 . '/24',
+            'label' => $this->faker->word.' Network',
+            'lan' => $this->faker->ipv4.'/24',
             'is_out_of_service' => $this->faker->boolean(10), // 10% chance of being out of service
         ];
     }

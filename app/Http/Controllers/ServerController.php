@@ -52,7 +52,6 @@ class ServerController extends Controller
      */
     public function show(Server $server): View
     {
-        /** @phpstan-ignore argument.type */
         return view('servers.show', compact('server'));
     }
 

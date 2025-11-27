@@ -18,8 +18,6 @@ test('admin can view networks list', function () {
     $response->assertViewIs('networks.index');
 });
 
-
-
 test('admin can create network', function () {
     $user = User::factory()->create();
     $user->assign('admin');
@@ -60,8 +58,6 @@ test('admin can delete network', function () {
     $this->assertDatabaseMissing('networks', ['id' => $network->id]);
 });
 
-
-
 test('admin can view edit page', function () {
     $user = User::factory()->create();
     $user->assign('admin');
@@ -71,4 +67,3 @@ test('admin can view edit page', function () {
 
     $response->assertStatus(200);
 });
-

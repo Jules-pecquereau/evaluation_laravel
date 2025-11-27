@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Network|null $network
  *
+ * @method static \Database\Factories\ComputerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Computer newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Computer newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Computer query()
@@ -32,6 +33,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Computer extends Model
 {
+    /** @use HasFactory<\Database\Factories\ComputerFactory> */
     use HasFactory;
 
     protected $fillable = ['serial_number', 'model', 'brand', 'commissioned_at', 'network_id'];

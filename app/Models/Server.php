@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Network|null $network
  *
+ * @method static \Database\Factories\ServerFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Server newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Server newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Server query()
@@ -30,6 +31,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Server extends Model
 {
+    /** @use HasFactory<\Database\Factories\ServerFactory> */
     use HasFactory;
 
     protected $fillable = ['ip_address', 'type', 'os', 'network_id'];
