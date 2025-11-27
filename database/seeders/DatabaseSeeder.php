@@ -17,24 +17,34 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Create Roles
+        $adminRole = Role::firstOrCreate(['name' => 'admin', 'title' => 'Administrator']);
+        $techRole = Role::firstOrCreate(['name' => 'technician', 'title' => 'Technician']);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Create Abilities
+        $manageNetworks = Ability::firstOrCreate(['name' => 'manage-networks', 'title' => 'Manage Networks']);
+        $manageComputers = Ability::firstOrCreate(['name' => 'manage-computers', 'title' => 'Manage Computers']);
+        $manageServers = Ability::firstOrCreate(['name' => 'manage-servers', 'title' => 'Manage Servers']);
+
+        // Assign Abilities to Roles
+        $adminRole->allow($manageNetworks);
+        $techRole->allow($manageComputers);
+        $techRole->allow($manageServers);
+
+        // Create Admin User
+        $adminUser = User::factory()->create([
+            'name' => 'Admin User',
+            'email' => 'admin@example.com',
+            'password' => 'Not24get',
         ]);
+        $adminUser->assign('admin');
 
-        // Small example: create roles & abilities and assign to the test user
-        $user = User::first();
-
-        $admin = Role::firstOrCreate(['name' => 'admin']);
-        $editor = Role::firstOrCreate(['name' => 'editor']);
-
-        $editArticles = Ability::firstOrCreate(['name' => 'edit-articles']);
-
-        // Assign role & ability
-        $user->assign($admin);
-        $user->assign($editor);
-        $user->allow($editArticles);
+        // Create Technician User
+        $techUser = User::factory()->create([
+            'name' => 'Technician User',
+            'email' => 'tech@example.com',
+            'password' => 'Not24get',
+        ]);
+        $techUser->assign('technician');
     }
 }
