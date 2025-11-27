@@ -1,59 +1,119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+Ce projet est une application de gestion de parc informatique développée avec Laravel 11. Elle permet de gérer des réseaux, des ordinateurs et des serveurs avec un système de permissions basé sur des rôles.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+    Technologies utilisées:
+  - Laravel 12
+  - Laravel Breeze
+  - MySQL
+  - TailwindCSS
+  - Alpine.js
+  - Vite
+  - Silber/Bouncer (Gestion des rôles)
+  - PHP 8.4
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+    Fonctionnalités
 
-## Learning Laravel
+- Authentification : Système complet de connexion (Laravel Breeze).
+- Gestion des Rôles et Permissions :
+  - Admin :  gestion des réseaux.
+  - Technicien : Gestion des ordinateurs et des serveurs.
+- Gestion des Ressources :
+  - Réseaux : Création, modification, suppression, statut (Hors service).
+  - Ordinateurs : Suivi par numéro de série, modèle, marque, date de mise en service.
+  - Serveurs : Suivi par IP, type, OS.
+- Internationalisation : Interface disponible en Français et Anglais.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+##  Prérequis
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- PHP 8.2+
+- Composer
+- Node.js & NPM
+- Base de données (MySQL)
 
-## Laravel Sponsors
+  Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Ce projet est conçu pour être facilement déployé avec Laravel Herd.
 
-### Premium Partners
+1. Cloner le dépôt
+   Clonez le projet dans votre dossier géré par Herd .
+   git clone <votre-url-de-depot>
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Installer les dépendances
 
-## Code of Conduct
+   composer install
+   npm install
+   npm run build
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+3. Configurer l'environnement
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+   cp .env.example .env
+   php artisan key:generate
 
-## License
+   Configurez votre base de données dans le fichier `.env`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4. Exécuter les migrations et les seeders
+    php artisan migrate --seed
+   Cette commande crée les tables et injecte les données de test.
+
+
+5. Accéder à l'application
+   Ouvrez votre navigateur sur :
+   https://evaluation_laravel.test
+
+  Utilisateurs par défaut
+
+Le seeder crée deux utilisateurs pour tester les différents rôles :
+
+
+ Administrateur | `admin@example.com` | `Not24get` | Gérer les réseaux 
+ Technicien | `tech@example.com` | `Not24get` | Gérer les ordinateurs et serveurs 
+
+
+page de connexion ;
+![alt text](image_readme/image-1.png)
+
+
+Compte Admin :
+
+page d'accueil pour admin 
+![alt text](image_readme/image.png)
+
+page liste des réseaux 
+![alt text](image_readme/image-2.png)
+
+page modifier un réseau 
+![alt text](image_readme/image-3.png)
+
+page ajouter un réseau
+![alt text](image_readme/image-4.png)
+
+
+Compte Technicien:
+
+page d'accueil technicien 
+![alt text](image_readme/image-6.png)
+
+page Ordinateur
+![alt text](image_readme/image-7.png)
+
+page modification 
+![alt text](image_readme/image-8.png)
+
+page ajout 
+![alt text](image_readme/image-9.png)
+
+page serveur 
+![alt text](image_readme/image-10.png)
+
+
+
+
+
+
+confirmation suppression 
+![alt text](image_readme/image-5.png)
