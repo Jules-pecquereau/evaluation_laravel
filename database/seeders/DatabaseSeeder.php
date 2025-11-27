@@ -46,5 +46,8 @@ class DatabaseSeeder extends Seeder
             'password' => 'Not24get',
         ]);
         $techUser->assign('technician');
+
+        // Seed Infrastructure
+        $this->call(InfrastructureSeeder::class);
     }
 }
