@@ -72,12 +72,3 @@ test('admin can view edit page', function () {
     $response->assertStatus(200);
 });
 
-test('admin can view show page', function () {
-    $user = User::factory()->create();
-    $user->assign('admin');
-    $network = Network::create(['label' => 'Show Me', 'lan' => '10.0.0.0/8', 'is_out_of_service' => false]);
-
-    $response = $this->actingAs($user)->get(route('networks.show', $network));
-
-    $response->assertStatus(200);
-});

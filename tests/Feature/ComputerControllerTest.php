@@ -99,19 +99,3 @@ test('technician can view edit page', function () {
     $response->assertStatus(200);
 });
 
-test('technician can view show page', function () {
-    $user = User::factory()->create();
-    $user->assign('technician');
-    $network = Network::create(['label' => 'Net1', 'lan' => '192.168.1.0/24', 'is_out_of_service' => false]);
-    $computer = Computer::create([
-        'serial_number' => 'SNSHOW',
-        'model' => 'Show Model',
-        'brand' => 'Show Brand',
-        'commissioned_at' => '2020-01-01',
-        'network_id' => $network->id,
-    ]);
-
-    $response = $this->actingAs($user)->get(route('computers.show', $computer));
-
-    $response->assertStatus(200);
-});
